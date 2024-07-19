@@ -28,3 +28,35 @@ There are many more problem occurs for which now almost every company either big
 ### Container
 A docker container have everything about the project like liberaries, runtime, tools, wuth sepcification version, code.
 
+### Docker installation on Linux
+
+Docker Desktop on Linux runs a Virtual Machine (VM) which creates and uses a custom docker context, desktop-linux, on startup.
+This means images and containers deployed on the Linux Docker Engine (before installation) are not available in Docker Desktop for Linux.
+
+### General System Requirements:
+To install Docker Desktop successfully, your Linux host must meet the following general requirements:
+
+    > 64-bit kernel and CPU support for virtualization.
+    > KVM virtualization support. Follow the KVM virtualization support instructions to check if the KVM kernel modules are enabled and how to provide access to the KVM device.
+    > QEMU must be version 5.2 or later. We recommend upgrading to the latest version.
+    > systemd init system.
+    > Gnome, KDE, or MATE Desktop environment.
+    	>> For many Linux distros, the Gnome environment does not support tray icons. To add support for tray icons, you need to install a Gnome extension. For example, AppIndicator
+    > At least 4 GB of RAM.
+    > Enable configuring ID mapping in user namespaces, see File sharing.
+    > Recommended: Initialize pass for credentials management.
+
+### KVM virtualization support
+
+Docker Desktop runs a VM that requires KVM support
+The kvm module should load automatically if the host has virtualization support. To load the module manually, run:
+```
+# modprobe kvm
+```
+Depending on the processor of the host machine, followwing command will used:
+```
+# modprobe kvm_intel	//Intel Processors
+
+# modprobe kvm_amd	//AMD Processors
+```
+
